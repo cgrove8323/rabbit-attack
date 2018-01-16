@@ -1,17 +1,22 @@
-# Rabbit Attack!
+#  Copyright (c) 2016 Jon Cooper
+#   
+#  This file is part of rabbit-attack.
+#  Documentation, related files, and licensing can be found at
+# 
+#      <https://github.com/joncoop/rabbit-attack>.
 
 def confirm(question):
-    answer = input(question + "(y/n) ")
+    while True:
+        answer = input(question + " (y/n)")
 
-    if answer == "y":
-        return True
-    else:
-        return False
-    
-playing = True
+        if answer == "y" or answer == "yes":
+            return True
+        elif answer == "n" or answer == "no":
+            return False
 
-while playing:
+        print("Invalid input. Try again.")
 
+def play():
     num_knights = 5
     rabbit_is_alive = True
 
@@ -34,7 +39,12 @@ while playing:
     else:
         print("All of the knights are dead. You lose.")
 
+playing = True
+
+while playing:
+    play()
     playing = confirm("Would you like to play again?")
 
+
 print("Goodbye. Thanks for playing!")
-        
+   
